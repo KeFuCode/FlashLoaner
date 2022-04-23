@@ -55,7 +55,7 @@ contract FlashLoan {
     }
 
     // uniswapV2Call(msg.sender, amount0Out, amount1Out, data);
-    function uniswapV2Call(address this, uint amount0Out, uint amount1Out, bytes memory data) public {
+    function uniswapV2Call(address account, uint amount0Out, uint amount1Out, bytes memory data) public {
         // 查询合约内 usdt 余额
         uint balance = IERC20(USDT).balanceOf(address(this));
         emit Balance(balance);

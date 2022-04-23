@@ -1,11 +1,16 @@
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-etherscan");
 require('dotenv').config()
+require('@nomiclabs/hardhat-ethers');
+require("hardhat-tracer");
 
 module.exports = {
   defaultNetwork: "rinkeby",
   networks: {
     hardhat: {
+      forking: {
+        url: "https://eth-mainnet.alchemyapi.io/v2/4JkLJZywJXjIRp27iHXc15FTAdJpZzsf",
+      }
     },
     rinkeby: {
       url: process.env.ALCHEMY_API_URL,
