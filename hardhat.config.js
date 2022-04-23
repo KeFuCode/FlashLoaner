@@ -16,12 +16,28 @@ module.exports = {
     apiKey: process.env.ETHERSCAN_API_KEY
   },
   solidity: {
-    version: "0.6.6",
+    compilers: [
+      {
+        version: "0.5.16",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200
+          }
+        },
+      },
+      {
+        version: "0.6.6",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200
+          }
+        },
+      },
+    ],
     settings: {
-      optimizer: {
-        enabled: true,
-        runs: 200
-      }
+
     }
   },
   paths: {
