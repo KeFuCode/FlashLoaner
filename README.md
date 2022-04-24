@@ -185,8 +185,9 @@ contract FlashLoan {
 }
 ```
 3. 进行闪电贷
-1. 闪电贷核心逻辑
-完成swap()和uniswapV2Call()这两个函数，就完成了闪电贷的核心功能。
+    1. 闪电贷核心逻辑  
+完成swap()和uniswapV2Call()这两个函数，就完成了闪电贷的核心功能。  
+
 ```solidity
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
 pragma solidity >=0.5.0;
@@ -266,9 +267,10 @@ contract FlashLoan {
     }
 }
 ```
-2. 完善合约
-由于演示的demo只是进行多次swap操作。要让合约运行起来，还需要向合约内提前存入足够的eth。
-除此之外，还需要给router授予token的使用权限。完善后的合约，就可以编译，部署并测试了。
+      2. 完善合约  
+由于演示的demo只是进行多次swap操作。要让合约运行起来，还需要向合约内提前存入足够的eth。  
+除此之外，还需要给router授予token的使用权限。完善后的合约，就可以编译，部署并测试了。  
+  
 ```solidity
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
 pragma solidity >=0.5.0;
@@ -374,8 +376,8 @@ contract FlashLoan {
 
 }
 ```
-## 四、编译、部署
-1. 配置hardhat.config.js
+## 四、编译、部署  
+1. 配置`hardhat.config.js`
 ```javascript
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-etherscan");
@@ -435,12 +437,12 @@ module.exports = {
   }
 }
 ```
-2. 编译
+2. 编译  
 ```bash
 npx hardhat compile
 ```
-3. 部署
-编写run.js，部署合约。
+3. 部署  
+编写`run.js`，部署合约。  
 ```javascript
 const hre = require("hardhat");
 
@@ -466,9 +468,10 @@ npx hardhat run .\scripts\run.js --network localhost
 # Contract address: 0xaca81583840b1bf2ddf6cde824ada250c1936b4d
 # Transaction: 0xc9687272e0ec68d9cd5a9bbd491b1a8fbca97701a66c6b2503d6a4c942be8ef9
 ```
-## 五、测试
-1. 执行deposit操作
-在进行闪电贷之前，为了保证合约成功运行，先向合约中存入一些eth。编写test1.js，存入eth。
+## 五、测试  
+1. 执行deposit操作  
+在进行闪电贷之前，为了保证合约成功运行，先向合约中存入一些eth。  
+编写`test1.js`，存入eth。  
 ```javascript
 async function main() {
     const address = '0xaca81583840B1bf2dDF6CDe824ada250C1936B4D';
@@ -496,8 +499,8 @@ npx hardhat run .\scripts\test1.js --network localhost
 # To: 0xaca81583840b1bf2ddf6cde824ada250c1936b4d
 # Value: 100 ETH
 ```
-2. 执行swap操作
-编写test2.js，执行闪电贷。
+2. 执行swap操作  
+编写`test2.js`，执行闪电贷。
 ```javascript
 async function main() {
     const address = '0xaca81583840B1bf2dDF6CDe824ada250C1936B4D';
@@ -523,13 +526,13 @@ npx hardhat run .\scripts\test2.js --network localhost
 # From: 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
 # To: 0xaca81583840b1bf2ddf6cde824ada250c1936b4d
 ```
-## 六、追踪交易信息
-借助hardhat插件 trace，获取交易的详细信息，更直观呈现合约交易过程。
-1. 安装包
+## 六、追踪交易信息  
+借助hardhat插件 trace，获取交易的详细信息，更直观呈现合约交易过程。  
+1. 安装包  
 ```bash
  npm i hardhat-tracer 
 ```
-2. 配置hardhat.config.js
+2. 配置`hardhat.config.js`  
 ```javascript
 require("hardhat-tracer");
 ```
